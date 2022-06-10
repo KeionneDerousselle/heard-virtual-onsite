@@ -1,0 +1,57 @@
+html,
+body {
+  @apply box-border scroll-smooth antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+}
+html,
+body {
+  @apply m-0 p-0 border-0 h-full w-full;
+}
+
+a {
+  @apply no-underline;
+}
+
+button {
+  @apply border-0;
+}
+
+ol,
+ul {
+  @apply list-none;
+}
+
+*,
+*::before,
+*::after {
+  @apply box-border m-0 p-0;
+  font-family: inherit;
+}
+
+.my-container {
+  @apply px-5 mx-auto w-full;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    max-width: 920px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 920px;
+  }
+}

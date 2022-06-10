@@ -1,4 +1,17 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# API
+/api/node_modules
+/api/.build/**
+/api/.webpack/**
+/api/.esbuild
+/api/coverage
+/api/.serverless
+/api/.eslintcache
+/api/.env
+/api/.env.development
+/api/.env.test
+# we're using yarn, adding this just in case someone runs npm instead of yarn
+/api/package-lock.json
 
 # dependencies
 /node_modules
@@ -33,3 +46,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# we're using yarn, adding this just in case someone runs npm instead of yarn
+package-lock.json
