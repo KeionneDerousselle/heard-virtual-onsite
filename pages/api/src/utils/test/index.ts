@@ -1,2 +1,2 @@
-export * from './generateMockApolloServerContext';
-export * from './generateApolloServer';
+export { generateMockApolloServerContext } from './generateMockApolloServerContext';
+export { generateApolloServer } from './generateApolloServer';

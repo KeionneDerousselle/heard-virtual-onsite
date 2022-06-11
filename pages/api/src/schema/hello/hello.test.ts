@@ -1,6 +1,7 @@
 import { ApolloServer, gql } from 'apollo-server-micro';
-import { generateApolloServer, defaultMockApolloServerContext } from '@/api/utils/test';
+import { generateApolloServer } from '@/api/utils/test';
 import type { GraphQLResponse } from 'apollo-server-types';
+
 let apolloServer: ApolloServer;
 
 describe('when querying the hello endpoint with a greeting', () => {
@@ -33,7 +34,7 @@ describe('when querying the hello endpoint with a greeting', () => {
       }
     `;
 
-    apolloServer = generateApolloServer(defaultMockApolloServerContext);
+    apolloServer = generateApolloServer({});
 
     response = await apolloServer.executeOperation({
       query: helloGreetingQuery,
