@@ -34,5 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# Optional eslint cache
+.eslintcache
+
 # we're using yarn, adding this just in case someone runs npm instead of yarn
 package-lock.json
