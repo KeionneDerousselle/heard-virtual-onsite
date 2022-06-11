@@ -6,7 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "type-check": "tsc",
+    "lint:js": "eslint --ext js,ts,tsx --ignore-path .eslintignore --cache .",
+    "lint:prettier": "prettier --check .",
+    "lint:fix": "prettier --write --list-different . && yarn lint:js --fix",
+    "lint": "yarn lint:js && yarn lint:prettier",
+    "next:lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --ci",
+    "prepare": "husky install",
+    "precommit:ui": "yarn lint-staged",
+    "precommit:api": "cd api && yarn lint-staged",
+    "precommit": "run-s precommit:*"
   },
   "dependencies": {
     "@apollo/client": "^3.6.7",
@@ -44,11 +56,19 @@
     "husky": "^8.0.1",
     "jest": "^28.1.1",
     "lint-staged": "^13.0.1",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.14",
     "prettier": "^2.6.2",
     "sass": "^1.52.3",
     "tailwindcss": "^3.1.2",
     "ts-jest": "^28.0.4",
     "typescript": "4.7.3"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "yarn lint:js --fix",
+      "prettier --write"
+    ],
+    "*.{scss,css,md}": "prettier --write"
   }
 }
