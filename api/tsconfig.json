@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "importHelpers": false,
+    "target": "es2015",
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "paths": {
+      "@virtual-onsite-api/types/*": ["src/types/*"],
+      "@virtual-onsite-api/handlers/*": ["src/handlers/*"],
+      "@virtual-onsite-api/schema/*": ["src/schema/*"],
+      "@virtual-onsite-api/utils/*": ["src/utils/*"],
+      "@virtual-onsite-api/datasources/*": ["src/datasources/*"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"],
+  "include": ["**/*.ts", "**/*.test.ts"]
+}

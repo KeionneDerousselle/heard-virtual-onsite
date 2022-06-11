@@ -1,0 +1,94 @@
+{
+  "name": "virtual-onsite-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",  
+  "scripts": {
+    "dev": "sls offline start --printOutput && yarn gen:watch",
+    "deploy": "serverless --stage=production deploy",
+    "gen": "graphql-codegen",
+    "gen:watch": "yarn gen --watch",
+    "lint": "eslint \"**/*.{js,ts}\" --cache",
+    "lint:errors": "yarn lint --quiet",
+    "lint:fix": "yarn lint --fix",
+    "start": "sls offline start",
+    "test": "yarn gen && jest --runInBand"
+  },
+  "dependencies": {
+    "@graphql-tools/merge": "^8.2.14",
+    "apollo": "^2.34.0",
+    "apollo-datasource-rest": "^3.6.0",
+    "apollo-server-core": "^3.8.2",
+    "apollo-server-lambda": "^3.8.2",
+    "form-data": "^4.0.0",
+    "graphql": "^16.5.0",
+    "lodash.merge": "^4.6.2"
+  },
+  "devDependencies": {
+    "@aws-sdk/types": "^3.78.0",
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/introspection": "^2.1.1",
+    "@graphql-codegen/schema-ast": "^2.4.1",
+    "@graphql-codegen/typescript": "^2.5.1",
+    "@graphql-codegen/typescript-operations": "^2.4.2",
+    "@graphql-codegen/typescript-resolvers": "^2.6.6",
+    "@types/jest": "^28.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "apollo-server-testing": "^2.25.3",
+    "esbuild": "^0.14.43",
+    "eslint": "^8.17.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.5.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "graphql-import": "^1.0.2",
+    "graphql-schema-linter": "^3.0.1",
+    "graphql-tag": "^2.12.6",
+    "jest": "^28.1.1",
+    "lint-staged": "^13.0.1",
+    "prettier": "^2.6.2",
+    "serverless": "^3.19.0",
+    "serverless-esbuild": "^1.30.0",
+    "serverless-offline": "^8.8.0",
+    "ts-jest": "^28.0.4",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "yarn lint:fix",
+      "prettier --write"
+    ],
+    "*.{md,json,yml,yaml,html}": [
+      "prettier --write"
+    ],
+    "*.graphql": [
+      "graphql-schema-linter src/**/*.graphql"
+    ]
+  },
+  "graphql-schema-linter": {
+    "rules": [
+      "deprecations-have-a-reason",
+      "descriptions-are-capitalized",
+      "enum-values-all-caps",
+      "enum-values-have-descriptions",
+      "enum-values-sorted-alphabetically",
+      "fields-are-camel-cased",
+      "fields-have-descriptions",
+      "input-object-fields-sorted-alphabetically",
+      "input-object-values-are-camel-cased",
+      "input-object-values-have-descriptions",
+      "type-fields-sorted-alphabetically",
+      "types-are-capitalized",
+      "types-have-descriptions"
+    ],
+    "ignore": {
+      "types-have-descriptions": [
+        "Query",
+        "Mutation",
+        "Subscription"
+      ]
+    }
+  }
+}
