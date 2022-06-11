@@ -1,9 +1,9 @@
-import { ApolloServer, Config } from 'apollo-server-lambda';
+import { ApolloServer, Config } from 'apollo-server-micro';
 import { mergeResolvers, mergeTypeDefs } from '@graphql-tools/merge';
 import { DocumentNode } from 'graphql';
-import { Resolvers } from '@virtual-onsite-api/types/graphql';
-import { ApolloServerContext } from '@virtual-onsite-api/handlers/graphql';
-import { typeDefs, resolvers } from '@virtual-onsite-api/schema/index';
+import { Resolvers } from '@/api/types/graphql';
+import { typeDefs, resolvers } from '@/api/schema/index';
+import { ApolloServerContext } from '@/api/types/apolloServerContext';
 
 export const generateApolloServer = (
   context: ApolloServerContext,

@@ -16,8 +16,7 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/pages/*": ["pages/*"],
-      "@/api/*": ["src/api/*"],
+      "@/api/*": ["pages/api/src/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@/context/*": ["src/context/*"],
       "@/components/*": ["src/components/*"],

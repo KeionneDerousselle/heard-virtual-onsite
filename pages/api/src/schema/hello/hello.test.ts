@@ -1,11 +1,11 @@
-import { ApolloServer, gql } from 'apollo-server-lambda';
-import { generateApolloServer, defaultMockApolloServerContext } from '@virtual-onsite-api/utils/test';
-
+import { ApolloServer, gql } from 'apollo-server-micro';
+import { generateApolloServer, defaultMockApolloServerContext } from '@/api/utils/test';
+import type { GraphQLResponse } from 'apollo-server-types';
 let apolloServer: ApolloServer;
 
 describe('when querying the hello endpoint with a greeting', () => {
   let greeting: string;
-  let response;
+  let response: GraphQLResponse;
 
   beforeAll(async () => {
     greeting = 'Sup';

@@ -1,4 +1,4 @@
-import { Resolvers } from '@virtual-onsite-api/types/graphql';
+import { Resolvers } from '@/api/types/graphql';
 
 export const helloResolvers: Resolvers = {
   Query: {
