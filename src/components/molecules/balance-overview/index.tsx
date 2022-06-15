@@ -14,10 +14,10 @@ export const BalanceOverview: FC<BalanceOverviewProps> = ({ amountAllowed, amoun
 
   return (
     <div className={classNames(className, 'text-white')}>
-      <h3>
+      <h2>
         <span className="text-2xl font-bold">${amountRemaining}</span>&nbsp;
         <span>remaining for this month</span>
-      </h3>
+      </h2>
       <ProgressBar value={percentageAmountRemaining} colorClassName="bg-white" />
       <p>
         <span className="font-bold">${amountSpent}</span>&nbsp;

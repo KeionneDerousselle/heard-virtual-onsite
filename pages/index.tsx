@@ -5,7 +5,7 @@ import { Overview } from '@/components/organisms/overview';
 const Home: NextPage = () => {
   return (
     <Layout>
-      <div className="">
+      <div>
         <Overview />
       </div>
     </Layout>
