@@ -12,8 +12,8 @@ export const budgetTypeDefs = gql`
     amount: Float
     category: String
     cadence: BudgetCadence
-    createdAt: DateTime
-    updatedAt: DateTime
+    createdAt: String
+    updatedAt: String
     createdBy: ID
   }
 

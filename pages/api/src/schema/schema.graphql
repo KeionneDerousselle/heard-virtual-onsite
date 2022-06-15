@@ -2,7 +2,25 @@ schema {
   query: Query
 }
 
+type Budget {
+  amount: Float
+  cadence: BudgetCadence
+  category: String
+  createdAt: String
+  createdBy: ID
+  id: ID
+  name: String
+  updatedAt: String
+}
+
+enum BudgetCadence {
+  MONTHLY
+  WEEKLY
+}
+
 type Query {
+  "Create a new budget"
+  createBudget(amount: Int!, cadence: BudgetCadence!, category: String!, name: String!, userId: ID!): Budget!
   "A Hello, World! query that accepts a greeting"
   hello(greeting: String!): String!
 }

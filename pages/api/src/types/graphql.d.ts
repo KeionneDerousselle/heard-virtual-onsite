@@ -14,10 +14,38 @@ export type Scalars = {
   Float: number;
 };
 
+export type Budget = {
+  __typename?: 'Budget';
+  amount?: Maybe<Scalars['Float']>;
+  cadence?: Maybe<BudgetCadence>;
+  category?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['String']>;
+  createdBy?: Maybe<Scalars['ID']>;
+  id?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['String']>;
+};
+
+export enum BudgetCadence {
+  Monthly = 'MONTHLY',
+  Weekly = 'WEEKLY'
+}
+
 export type Query = {
   __typename?: 'Query';
+  /** Create a new budget */
+  createBudget: Budget;
   /** A Hello, World! query that accepts a greeting */
   hello: Scalars['String'];
+};
+
+
+export type QueryCreateBudgetArgs = {
+  amount: Scalars['Int'];
+  cadence: BudgetCadence;
+  category: Scalars['String'];
+  name: Scalars['String'];
+  userId: Scalars['ID'];
 };
 
 
@@ -95,6 +123,11 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  Budget: ResolverTypeWrapper<Budget>;
+  BudgetCadence: BudgetCadence;
+  Float: ResolverTypeWrapper<Scalars['Float']>;
+  ID: ResolverTypeWrapper<Scalars['ID']>;
+  Int: ResolverTypeWrapper<Scalars['Int']>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
 };
@@ -102,15 +135,33 @@ export type ResolversTypes = {
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
+  Budget: Budget;
+  Float: Scalars['Float'];
+  ID: Scalars['ID'];
+  Int: Scalars['Int'];
   Query: {};
   String: Scalars['String'];
 };
 
+export type BudgetResolvers<ContextType = any, ParentType extends ResolversParentTypes['Budget'] = ResolversParentTypes['Budget']> = {
+  amount?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
+  cadence?: Resolver<Maybe<ResolversTypes['BudgetCadence']>, ParentType, ContextType>;
+  category?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdBy?: Resolver<Maybe<ResolversTypes['ID']>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['ID']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  createBudget?: Resolver<ResolversTypes['Budget'], ParentType, ContextType, RequireFields<QueryCreateBudgetArgs, 'amount' | 'cadence' | 'category' | 'name' | 'userId'>>;
   hello?: Resolver<ResolversTypes['String'], ParentType, ContextType, RequireFields<QueryHelloArgs, 'greeting'>>;
 };
 
 export type Resolvers<ContextType = any> = {
+  Budget?: BudgetResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };
 
