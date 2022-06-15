@@ -24,6 +24,6 @@
       "@/styles/*": ["styles/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "react-reveal.d.ts", "src/@types", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "./api"]
 }

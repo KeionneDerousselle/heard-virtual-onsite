@@ -1,6 +1,7 @@
 import { FC, useId } from 'react';
 import classNames from 'classnames';
-import Slide from 'react-reveal/Slide';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const Slide = require('react-reveal/Slide');
 
 export type ProgressBarProps = {
   className?: string;
