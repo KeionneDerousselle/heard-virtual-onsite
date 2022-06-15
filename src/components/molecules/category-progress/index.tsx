@@ -15,7 +15,10 @@ export const CategoryProgress: FC<CategoryProgressProps> = ({ name, amountAllowe
 
   return (
     <div className={classNames('p-4 bg-white rounded-lg shadow-md', className)}>
-      <h4 className="text-lg font-bold">{name}</h4>
+      <div className="flex items-center justify-between">
+        <h4 className="text-lg font-bold">{name}</h4>
+        <button>✎</button>
+      </div>
       <ProgressBar label={name} value={percentageAmountRemaining} colorClassName="bg-[#204E51]" />
       <div className="flex items-center justify-between">
         <p className="inline-block">
